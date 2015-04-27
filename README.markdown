@@ -1,4 +1,14 @@
-      _____   ___  
+# B1
+
+Simple declarative visualization in Clojure(Script).
+
+B1 is a simplified version of the [C2](https://github.com/lynaghk/c2) data visualization library for Clojure and Clojurescript. Unlike C2, B1 does not attempt to handle bindings between your data and HTML or SVG markup.
+
+Currently B1 is simply a fork of C2 without the state-management bits. If you'd like to bind B1 rendering to your appication state, look at [Om](https://github.com/omcljs/om) or [Reagent](https://github.com/reagent-project/reagent).
+
+Below is C2's original Readme.
+
+_____   ___  
      / ____| |__ \ 
     | |         ) |
     | |        / / 
