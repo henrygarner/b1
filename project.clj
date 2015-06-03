@@ -1,11 +1,12 @@
-(defproject b1 "0.1.0"
-  
+(defproject b1 "0.3.0"
+
   :description "Simple data visualization in Clojure(Script)."
   :url "https://github.com/henrygarner/b1"
   :license {:name "BSD"
             :url "http://www.opensource.org/licenses/BSD-3-Clause"}
   
-  :dependencies [[org.clojure/clojure "1.6.0"]]
+  :dependencies [[org.clojure/clojure "1.6.0"]
+                 [clj-iterate "0.96"]]
 
   :profiles {:dev {:dependencies [[midje "1.5.0"]]}}
 
