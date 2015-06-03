@@ -2,9 +2,53 @@
 
 Simple declarative visualization in Clojure(Script).
 
-B1 is a simplified version of the [C2](https://github.com/lynaghk/c2) data visualization library for Clojure and Clojurescript. Unlike C2, B1 does not attempt to handle bindings between your data and HTML or SVG markup.
+B1 is a simplified version of the [C2](https://github.com/lynaghk/c2) data visualization library for Clojure and Clojurescript. Unlike C2, B1 does not attempt to handle bindings between your data and HTML or SVG markup. B1 is C2 without two-way data bindings. If you'd like to bind B1 rendering to your appication state, look at [Om](https://github.com/omcljs/om) or [Reagent](https://github.com/reagent-project/reagent).
 
-Currently B1 is simply a fork of C2 without the state-management bits. If you'd like to bind B1 rendering to your appication state, look at [Om](https://github.com/omcljs/om) or [Reagent](https://github.com/reagent-project/reagent).
+## Usage
+
+Require B1 in your namespace.
+
+```clj
+[b1 "0.3.0"]
+```
+
+You can render data as a histogram in the following way:
+
+```clj
+
+(:require [b1.charts :as c]
+          [b1.svg :as s])
+
+(def data (take 100 (repeatedly rand)))
+
+(-> (c/histogram data)
+    (s/as-svg :width 500 :height 200))
+```
+
+More than one histogram can be rendered simultaneously:
+
+```clj
+
+(-> (c/histogram data)
+    (c/add-histogram more-data)
+    (s/as-svg :width 500 :height 200))
+```
+
+Use CSS to style data series like so:
+
+```css
+g.bar.series-0 rect {
+    fill: steelblue;
+}
+
+g.bar.series-1 rect {
+    fill: lightsteelblue;
+}
+```
+
+![](https://github.com/henrygarner/b1/blob/master/doc/images/histogram.png)
+
+---
 
 Below is C2's original Readme.
 
