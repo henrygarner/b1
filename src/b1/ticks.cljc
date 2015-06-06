@@ -1,13 +1,11 @@
 ;;Implementation of [An Extension of Wilkinson’s Algorithm for Positioning Tick Labels on Axes](http://graphics.stanford.edu/vis/publications/2010/labeling-preprint.pdf) by Justin Talbot, Sharon Lin, and Pat Hanrahan.
 ;;See also [Talbot's website](http://www.justintalbot.com/research/axis-labeling/).
 
-^:clj (ns b1.ticks
-        (:use [b1.maths :only [sq ceil floor log10 expt irange within?]]
-              [iterate :only [iter]]))
-
-^:cljs (ns b1.ticks
-         (:use-macros [iterate :only [iter]])
-         (:use [b1.maths :only [sq ceil floor log10 expt irange within?]]))
+(ns b1.ticks
+  #?(:clj (:use [b1.maths :only [sq ceil floor log10 expt irange within?]]
+                  [iterate :only [iter]]))
+  #?@(:cljs [(:use-macros [iterate :only [iter]])
+             (:use [b1.maths :only [sq ceil floor log10 expt irange within?]])]))
 
 (def Q "Preference-ordered list of nice step sizes"
   [1 5 2 2.5 4 3])

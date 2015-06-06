@@ -5,8 +5,9 @@
             [b1.scale :as scale]
             [b1.ticks :refer [search]]
             [clojure.string :as string]
-            [goog.string :as gstring]
-            [goog.string.format :as format]))
+            #?@(:cljs
+                [[goog.string :as gstring]
+                 [goog.string.format :as format]])))
 
 (defn ->xy
   "Ensure that coordinates (potentially map of `{:x :y}`) are a seq or vector pair."
@@ -224,7 +225,14 @@
      [:g {:transform (translate [margin-horizontal 0])}
       (axis scale-y (:ticks (search [0 max-y] :length (- height
                                                          (* 2 margin-horizontal))))
-            :formatter #(string/replace (gstring/format "%.2f" %) #"\.?0+$" "")
+            :formatter
+            #?(:cljs 
+               #(string/replace
+                 (gstring/format "%.2f" %) #"\.?0+$" ""))
+            #?(:clj
+               #(string/replace
+                 (format "%.2f" %) #"\.?0+$" ""))
+            
             :orientation :left)]
      [:g {:transform (translate [0 (- height margin-vertical)])}
       (axis scale-x (:ticks (search x-axis)) :orientation :bottom)]

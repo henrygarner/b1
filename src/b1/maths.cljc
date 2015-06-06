@@ -1,8 +1,6 @@
-^:clj (ns b1.maths
-        (:require [b1.util :refer [combine-with]]))
-
-^:cljs (ns b1.maths
-         (:require-macros [b1.util :refer [combine-with]]))
+(ns b1.maths
+  #?(:clj (:require [b1.util :refer [combine-with]]))
+  #?(:cljs (:require-macros [b1.util :refer [combine-with]])))
 
 (def Pi Math/PI)
 (def Tau (* 2 Pi))
@@ -35,10 +33,10 @@
   ([base x] (/ (Math/log x)
                (Math/log base))))
 
-(defn ^:clj log10 [x] (Math/log10 x))
-(defn ^:cljs log10 [x] (/ (.log js/Math x)
-                          (.-LN10 js/Math)))
-
+(defn log10 [x]
+  #?(:clj (Math/log10 x))
+  #?(:cljs (/ (.log js/Math x)
+              (.-LN10 js/Math))))
 
 (defn extent
   "Returns 2-vector of min and max elements in xs."
