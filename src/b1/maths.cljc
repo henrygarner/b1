@@ -21,7 +21,9 @@
   ([x] (Math/exp x))
   ([x y] (Math/pow x y)))
 
-(defn sq [x] (expt x 2))
+#?(:clj (defn sq [x] (expt x 2)))
+#?(:cljs (defn sq [x] (Math/pow x 2)))
+
 (defn sqrt [x] (Math/sqrt x))
 
 (defn floor [x] (Math/floor x))
