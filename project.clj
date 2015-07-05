@@ -1,4 +1,4 @@
-(defproject b1 "0.3.1"
+(defproject b1 "0.3.2"
 
   :description "Simple data visualization in Clojure(Script)."
   :url "https://github.com/henrygarner/b1"
