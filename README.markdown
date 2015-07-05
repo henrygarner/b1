@@ -9,7 +9,7 @@ B1 is a simplified version of the [C2](https://github.com/lynaghk/c2) data visua
 Require B1 in your namespace.
 
 ```clj
-[b1 "0.3.1"]
+[b1 "0.3.2"]
 ```
 
 You can render data as a histogram in the following way:
@@ -21,7 +21,7 @@ You can render data as a histogram in the following way:
 
 (def data (take 100 (repeatedly rand)))
 
-(-> (c/histogram data)
+(-> (c/histogram data :x-axis [0 1] :n-bins 10)
     (s/as-svg :width 500 :height 200))
 ```
 
@@ -29,7 +29,7 @@ More than one histogram can be rendered simultaneously:
 
 ```clj
 
-(-> (c/histogram data)
+(-> (c/histogram data :x-axis [0 1] :n-bins 10)
     (c/add-histogram more-data)
     (s/as-svg :width 500 :height 200))
 ```
