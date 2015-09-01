@@ -1,4 +1,4 @@
-(defproject b1 "0.3.3-SNAPSHOT"
+(defproject b1 "0.3.3"
   :description "Simple data visualization in Clojure(Script)."
   :url "https://github.com/henrygarner/b1"
   :license {:name "BSD"
