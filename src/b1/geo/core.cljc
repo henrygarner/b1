@@ -3,8 +3,8 @@
                     [clojure.core.match :refer [match]]
                     [clojure.string :refer [join]]))
   #?(:cljs (:refer-clojure :exclude [map]))
-  #?(:cljs (:require [b1.maths :refer [rad sq sqrt sin asin cos radians-per-degree]]))
-  #?(:cljs (:require-macros [clojure.core.match.js :refer [match]])))
+  #?(:cljs (:require [b1.maths :refer [rad sq sqrt sin asin cos radians-per-degree]]
+                     [cljs.core.match :refer-macros [match]])))
 
 
 ;; Use JS native map and join fns; this is about 3 times faster than using CLJS seqs and str.

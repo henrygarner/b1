@@ -1,5 +1,4 @@
 (defproject b1 "0.3.3-SNAPSHOT"
-
   :description "Simple data visualization in Clojure(Script)."
   :url "https://github.com/henrygarner/b1"
   :license {:name "BSD"
@@ -8,7 +7,7 @@
   :dependencies [[org.clojure/clojure "1.7.0"]
                  [org.clojure/clojurescript "0.0-3308" :scope "provided"]
                  [clj-iterate "0.96"]
-                 [org.clojure/core.match "0.2.0-alpha12"]]
+                 [org.clojure/core.match "0.3.0-alpha4"]]
 
   :plugins [[lein-cljsbuild "1.0.5"]
             [lein-midje "3.1.3"]]
