@@ -9,7 +9,7 @@ B1 is a simplified version of the [C2](https://github.com/lynaghk/c2) data visua
 Require B1 in your namespace.
 
 ```clj
-[b1 "0.3.2"]
+[b1 "0.3.3"]
 ```
 
 You can render data as a histogram in the following way:
